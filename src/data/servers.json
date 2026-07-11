@@ -485,7 +485,7 @@
     "port": 11451,
     "flag": "fr",
     "platform": "switch",
-    "type": "node"
+    "type": "rust"
   },
   {
     "ip": "switch.jayseateam.nl",
