@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 import serversSource from '../data/servers.json'
-import { filterBy, rejectBy, truthyBy, falsyBy } from '@/utils/filters'
+import { rejectBy, truthyBy, falsyBy } from '@/utils/filters'
 
 const serverMapping = ({
   ip,
@@ -28,9 +28,9 @@ export const useServersStore = defineStore('servers', {
   state: () => ({
     servers: serversSource
       .filter(falsyBy('hidden'))
-      .filter(filterBy('type', 'rust'))
+      // .filter(filterBy('type', 'rust')) // Only show Rust servers by default (loadMore === false)
       .map(serverMapping),
-    loadMore: false,
+    loadMore: true,
     loadHidden: false,
     monitors: undefined,
   }),
